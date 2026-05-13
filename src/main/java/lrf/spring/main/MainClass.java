@@ -24,8 +24,10 @@ public class MainClass {
         /**
          * 这是通过xml配置创建的Spring上下文
          */
-        ClassPathXmlApplicationContext context1 = new ClassPathXmlApplicationContext("classpath:Spring.xml");
-        Handleinter h1 = context1.getBean(Handleinter.class);
-        h1.handleduty();
+        // ClassPathXmlApplicationContext context1 = new ClassPathXmlApplicationContext("classpath:Spring.xml");
+        // Handleinter h1 = context1.getBean(Handleinter.class);
+        // h1.handleduty();
+        // context1.close(); // 触发销毁
+
     }
 }

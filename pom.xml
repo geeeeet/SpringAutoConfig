@@ -52,6 +52,13 @@
             <version>7.0.3</version>
         </dependency>
 
+        <!-- AspectJ 核心运行时依赖 -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.25.1</version>
+        </dependency>
+
         <!-- AspectJ 支持（@Aspect 注解核心） -->
         <!-- Source: https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
         <dependency>

@@ -1,0 +1,27 @@
+<!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "https://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+    <weaver options="-verbose">
+        <!-- 声明哪些包下的字节码允许被魔改织入 -->
+        <include within="lrf.spring.proxy.AspectAOP..*"/>
+        <!--
+        内部标签：<include within="lrf.spring.proxy.AspectAOP..*"/>
+        这是最关键的白名单过滤器。
+
+          1、include：表示“包含/切入”。（与之对应的是 <exclude>，表示排除）。
+          2、within：是 AspectJ 的空间限定关键字，用来指定类的物理包路径。
+          3、lrf.spring.proxy.AspectAOP..*（核心语法）：
+             3.1、lrf.spring.proxy.AspectAOP：固定包名前缀。
+             3.2、..（双点）：极其重要！代表当前包及其所有的子包（无论嵌套多深）。
+             3.3、*（单星号）：代表所有类。
+
+          合含义：只要被 JVM 加载的类的包名是以 lrf.spring.proxy.AspectAOP 开头的
+          （例如 lrf.spring.proxy.AspectAOP.Main、lrf.spring.proxy.AspectAOP.UserService、lrf.spring.proxy.AspectAOP.model.order.Item），
+          一律允许 AspectJ Weaver 拆开它的字节码并把切面逻辑塞进去。
+       -->
+    </weaver>
+
+    <aspects>
+        <!-- 注册切面类 -->
+        <aspect name="lrf.spring.proxy.AspectAOP.AdvancedAspect"/>
+    </aspects>
+</aspectj>
